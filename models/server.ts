@@ -5,6 +5,7 @@ import pedidosRoutes from '../routes/pedidos'
 import productosRoutes from '../routes/productos'
 import facturasRoutes from '../routes/facturas'
 import clientesRoutes from '../routes/clientes'
+import categoriasRoutes from '../routes/categorias'
 
 import cors from "cors";
 
@@ -16,11 +17,12 @@ class Server {
     private port:String
     // Rutas
     private apiPath = {
-        users : '/api/usuarios',
-        pedidos : '/api/pedidos',
-        productos : '/api/productos',
-        facturas : '/api/facturas',
-        clientes : '/api/clientes',
+        users       : '/api/usuarios',
+        pedidos     : '/api/pedidos',
+        productos   : '/api/productos',
+        facturas    : '/api/facturas',
+        clientes    : '/api/clientes',
+        categorias  : '/api/categorias',
     }
 
     constructor() {
@@ -63,6 +65,7 @@ class Server {
         this.app.use( this.apiPath.productos,   productosRoutes )
         this.app.use( this.apiPath.facturas,    facturasRoutes )
         this.app.use( this.apiPath.clientes,    clientesRoutes )
+        this.app.use( this.apiPath.categorias,  categoriasRoutes )
     }
 
     listen(){
