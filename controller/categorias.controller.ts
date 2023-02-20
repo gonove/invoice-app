@@ -6,7 +6,7 @@ export const getCategorias = async( req:Request, res:Response ) => {
 
     try {
 
-        Categoria.sync({ force: true })
+        // Categoria.sync({ force: true })
         const data = await Categoria.findAll( { where : { estado : true } } )
 
         res.json({
@@ -45,7 +45,7 @@ export const postCategoria = async( req:Request, res:Response ) => {
         await categoria.save()
 
         res.json({
-            Categoria
+            categoria
         })
     } catch (error) {
         res.json({

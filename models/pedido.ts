@@ -11,12 +11,6 @@ const Pedido = db.define('pedido', {
         allowNull : false
     },
 
-    // fecha_pedido : {
-    //     type : DataTypes.DATE,
-    //     unique : true,
-    //     allowNull : false,
-    // },
-
     ruc : {
         type : DataTypes.INTEGER,
         allowNull : false
@@ -24,6 +18,7 @@ const Pedido = db.define('pedido', {
     },
     productos : {
         type : DataTypes.STRING,
+        allowNull : false
         // values : ['EDITORA', 'ADMIN'],
 
     },

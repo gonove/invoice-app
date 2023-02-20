@@ -6,7 +6,7 @@ export const getClientes = async( req:Request, res:Response ) => {
 
     try {
 
-        Cliente.sync({ force: true })
+        // Cliente.sync({ force: true })
         const data = await Cliente.findAll( { where : { estado : true } } )
 
         res.json({

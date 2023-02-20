@@ -1,19 +1,19 @@
 import { Router } from "express";
-import { deleteCliente, getCliente, getClientes, postCliente, putCliente } from '../controller/clientes.controller';
+import { deleteCategoria, getCategoria, getCategorias, postCategoria, putCategoria } from '../controller/categorias.controller';
 
 
 const router = Router()
 
 
-router.get( '/', getClientes )
+router.get( '/', getCategorias )
 
-router.get( '/:id', getCliente )
+router.get( '/:id', getCategoria )
 
-router.post( '/', postCliente )
+router.post( '/', postCategoria )
 
-router.put( '/:id', putCliente )
+router.put( '/:id', putCategoria )
 
-router.delete( '/:id', deleteCliente )
+router.delete( '/:id', deleteCategoria )
 
 
 export default router;
