@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import db from '../db/connection';
 
-const User = db.define('productos', {
+const Producto = db.define('productos', {
     nombre : {
         type : DataTypes.STRING,
         allowNull : false
@@ -42,4 +42,4 @@ const User = db.define('productos', {
 
 });
 
-export default User;
+export default Producto;

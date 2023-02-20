@@ -3,6 +3,7 @@ import express, { Application } from "express";
 import userRoutes from '../routes/users'
 import pedidosRoutes from '../routes/pedidos'
 import productosRoutes from '../routes/productos'
+import facturasRoutes from '../routes/facturas'
 
 import cors from "cors";
 
@@ -17,6 +18,7 @@ class Server {
         users : '/api/usuarios',
         pedidos : '/api/pedidos',
         productos : '/api/productos',
+        facturas : '/api/facturas',
     }
 
     constructor() {
@@ -54,9 +56,10 @@ class Server {
     }
 
     routes(){
-        this.app.use( this.apiPath.users, userRoutes )
-        this.app.use( this.apiPath.pedidos, pedidosRoutes )
-        this.app.use( this.apiPath.productos, productosRoutes )
+        this.app.use( this.apiPath.users,       userRoutes )
+        this.app.use( this.apiPath.pedidos,     pedidosRoutes )
+        this.app.use( this.apiPath.productos,   productosRoutes )
+        this.app.use( this.apiPath.facturas,   facturasRoutes )
     }
 
     listen(){

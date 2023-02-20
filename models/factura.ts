@@ -1,40 +1,43 @@
 import { DataTypes } from "sequelize";
 import db from '../db/connection';
 
-const Pedido = db.define('pedido', {
+const Factura = db.define('facturas', {
     cliente : {
         type : DataTypes.STRING,
         allowNull : false
     },
-    usuario : {
+
+    nombre : {
         type : DataTypes.STRING,
         allowNull : false
     },
 
-    // fecha_pedido : {
-    //     type : DataTypes.DATE,
-    //     unique : true,
-    //     allowNull : false,
-    // },
-
-    ruc : {
-        type : DataTypes.INTEGER,
-        allowNull : false
-
-    },
-    productos : {
-        type : DataTypes.STRING,
-        // values : ['EDITORA', 'ADMIN'],
-
-    },
     estado : {
         type : DataTypes.BOOLEAN,
         defaultValue : true
     },
-    descuento : {
-        type : DataTypes.FLOAT,
+
+    ruc : {
+        type : DataTypes.INTEGER,
+        allowNull : false
+    },
+
+    usuario : {
+        type : DataTypes.STRING,
+        allowNull : false,
 
     },
+
+    plazo : {
+        type : DataTypes.INTEGER,
+        allowNull : false
+    },
+
+    fecha_vencimiento : {
+        type : DataTypes.DATE,
+        allowNull : false
+    },
+
     createdAt : {
         type : DataTypes.DATE
 
@@ -44,7 +47,6 @@ const Pedido = db.define('pedido', {
 
     }
 
-
 });
 
-export default Pedido;
+export default Factura;
