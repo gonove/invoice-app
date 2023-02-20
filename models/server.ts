@@ -1,6 +1,9 @@
 import express, { Application } from "express";
+
 import userRoutes from '../routes/users'
-import userPedidos from '../routes/pedidos'
+import pedidosRoutes from '../routes/pedidos'
+import productosRoutes from '../routes/productos'
+
 import cors from "cors";
 
 import db from '../db/connection'
@@ -13,6 +16,7 @@ class Server {
     private apiPath = {
         users : '/api/usuarios',
         pedidos : '/api/pedidos',
+        productos : '/api/productos',
     }
 
     constructor() {
@@ -51,7 +55,8 @@ class Server {
 
     routes(){
         this.app.use( this.apiPath.users, userRoutes )
-        this.app.use( this.apiPath.pedidos, userPedidos )
+        this.app.use( this.apiPath.pedidos, pedidosRoutes )
+        this.app.use( this.apiPath.productos, productosRoutes )
     }
 
     listen(){
