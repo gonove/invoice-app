@@ -20,18 +20,19 @@ export const getUsers = async( req:Request, res:Response ) => {
 
 export const getUser = async( req:Request, res:Response ) => {
 
-    const { id } = req.params;
+    const { id } = req.params
 
-    try {
+    const usuario = await User.findByPk( id )
 
-        const data = await User.findByPk( id )
-
-        res.json({
-            data
+    if (!usuario) {
+        return res.status(404).json({
+            msg : `El usuario: ${id} no existe </3`
         })
-    } catch (error) {
-        console.log(error);
     }
+
+    res.json({
+        usuario
+    })
 }
 
 export const postUser = async( req:Request, res:Response ) => {
@@ -44,7 +45,6 @@ export const postUser = async( req:Request, res:Response ) => {
         await usuario.save()
 
         res.json({
-            msg : 'postUser',
             usuario
         })
     } catch (error) {
@@ -55,24 +55,45 @@ export const postUser = async( req:Request, res:Response ) => {
 
 }
 
-export const putUser = ( req:Request, res:Response ) => {
+export const putUser = async( req:Request, res:Response ) => {
 
-    const { id } = req.params;
-    const { body } = req;
+    const { id } = req.params
+    const { body } = req
 
-    res.json({
-        msg : 'putUser',
-        body,
-        id
-    })
+    try {
+
+        const usuario = await User.findByPk( id )
+        await usuario?.update( body )
+
+        res.json({
+            usuario
+        })
+    } catch (error) {
+        return res.status(400).json({
+            msg : '</3',
+            error
+        })
+    }
 }
 
-export const deleteUser = ( req:Request, res:Response ) => {
+export const deleteUser = async( req:Request, res:Response ) => {
 
-    const { id } = req.params;
+    const { id } = req.params
 
-    res.json({
-        msg : 'deleteUser',
-        id
-    })
+    try {
+        const usuario = await User.findByPk( id )
+        await usuario?.update({ estado : false })
+
+        res.json({
+            msg : 'deleteUser',
+            id
+        })
+
+    } catch (error) {
+
+        return res.status(500).json({
+            msg : 'el delete falló </3',
+            error
+        })
+    }
 }
