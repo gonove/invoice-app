@@ -19,9 +19,12 @@ const Pedido = db.define('pedido', {
     productos : {
         type : DataTypes.STRING,
         allowNull : false
-        // values : ['EDITORA', 'ADMIN'],
-
     },
+
+    numero_factura : {
+        type : DataTypes.STRING,
+    },
+
     estado : {
         type : DataTypes.BOOLEAN,
         defaultValue : true

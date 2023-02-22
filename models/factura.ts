@@ -28,6 +28,11 @@ const Factura = db.define('facturas', {
 
     },
 
+    numero_factura : {
+        type : DataTypes.STRING,
+
+    },
+
     plazo : {
         type : DataTypes.INTEGER,
         allowNull : false
