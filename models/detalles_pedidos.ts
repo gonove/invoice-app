@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import db from '../db/connection';
 
-const Pedido = db.define('pedido', {
+const DetallePedido = db.define('detalle_pedido', {
     cliente : {
         type : DataTypes.STRING,
         allowNull : false
@@ -36,4 +36,4 @@ const Pedido = db.define('pedido', {
 
 });
 
-export default Pedido;
+export default DetallePedido;

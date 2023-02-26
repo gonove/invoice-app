@@ -6,6 +6,7 @@ import productosRoutes from '../routes/productos'
 import facturasRoutes from '../routes/facturas'
 import clientesRoutes from '../routes/clientes'
 import categoriasRoutes from '../routes/categorias'
+import detallePedidoRoutes from '../routes/detalle_pedido'
 
 import cors from "cors";
 
@@ -23,6 +24,7 @@ class Server {
         facturas    : '/api/facturas',
         clientes    : '/api/clientes',
         categorias  : '/api/categorias',
+        detallePedido  : '/api/detalle-pedido',
     }
 
     constructor() {
@@ -60,12 +62,13 @@ class Server {
     }
 
     routes(){
-        this.app.use( this.apiPath.users,       userRoutes )
-        this.app.use( this.apiPath.pedidos,     pedidosRoutes )
-        this.app.use( this.apiPath.productos,   productosRoutes )
-        this.app.use( this.apiPath.facturas,    facturasRoutes )
-        this.app.use( this.apiPath.clientes,    clientesRoutes )
-        this.app.use( this.apiPath.categorias,  categoriasRoutes )
+        this.app.use( this.apiPath.users,           userRoutes )
+        this.app.use( this.apiPath.pedidos,         pedidosRoutes )
+        this.app.use( this.apiPath.productos,       productosRoutes )
+        this.app.use( this.apiPath.facturas,        facturasRoutes )
+        this.app.use( this.apiPath.clientes,        clientesRoutes )
+        this.app.use( this.apiPath.categorias,      categoriasRoutes )
+        this.app.use( this.apiPath.detallePedido,   detallePedidoRoutes )
     }
 
     listen(){
