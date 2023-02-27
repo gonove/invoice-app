@@ -1,33 +1,26 @@
 import { DataTypes } from "sequelize";
 import db from '../db/connection';
 
-const Pedido = db.define('pedido', {
+const Descuento = db.define('descuentos', {
     cliente : {
         type : DataTypes.STRING,
         allowNull : false
     },
-    usuario : {
+
+    id_producto : {
         type : DataTypes.STRING,
         allowNull : false
-    },
-
-    ruc : {
-        type : DataTypes.STRING,
-        allowNull : false
-    },
-
-    observacion : {
-        type : DataTypes.STRING,
     },
 
     estado : {
         type : DataTypes.BOOLEAN,
         defaultValue : true
     },
-    descuento : {
-        type : DataTypes.FLOAT,
 
+    precio : {
+        type : DataTypes.INTEGER,
     },
+
     createdAt : {
         type : DataTypes.DATE
 
@@ -37,7 +30,6 @@ const Pedido = db.define('pedido', {
 
     }
 
-
 });
 
-export default Pedido;
+export default Descuento;

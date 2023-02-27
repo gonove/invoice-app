@@ -11,6 +11,36 @@ const DetallePedido = db.define('detalle_pedido', {
         allowNull : false
     },
 
+    id_producto : {
+        type : DataTypes.STRING,
+        allowNull : false
+    },
+
+    id_pedido : {
+        type : DataTypes.STRING,
+
+    },
+
+    precio : {
+        type : DataTypes.INTEGER,
+
+    },
+
+    iva : {
+        type : DataTypes.INTEGER,
+
+    },
+
+    total : {
+        type : DataTypes.INTEGER,
+
+    },
+
+    factura : {
+        type : DataTypes.INTEGER,
+
+    },
+
     ruc : {
         type : DataTypes.STRING,
         allowNull : false
